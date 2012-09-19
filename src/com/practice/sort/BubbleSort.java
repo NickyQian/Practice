@@ -1,5 +1,8 @@
 package com.practice.sort;
 
+import java.text.DecimalFormat;
+
+
 /*
  * 冒泡法
  *  比较临近2个  把大的值往后冒泡 最后一个就是最大的 
@@ -26,5 +29,11 @@ public class BubbleSort {
 		for(int result : bs.dataToSort){
 			System.out.println(result);
 		}
+		double d = 12.34567890123;
+		
+		String formatValue = new  DecimalFormat("#.###").format(d);
+		System.out.println(formatValue);
+		System.out.println((float)d);
+		
 	}
 }
