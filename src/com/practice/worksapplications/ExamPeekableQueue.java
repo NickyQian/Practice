@@ -44,16 +44,16 @@ public interface ExamPeekableQueue<E extends Comparable<E>> {
 	*/
 	public E peekMedian();
 	/**
-	* Looks at the object which has the maximum value among the all objects without removing it from the queue.
-	* <pre>
-	* e.g.
-	* When the queue has the following values (2, 1, 2, 2, 6, 4, 2, 5)
-	* this method returns 6 and doesn't remove that object.
-	* </pre>
-	* If the queue is empty, throws java.util.NoSuchElementException.
-	* @return
-	* @throws java.util.NoSuchElementException
-	*/
+	 * Looks at the object which has the maximum value among the all objects without removing it from the queue.
+	 * <pre>
+	 *  e.g.
+	 *    When the queue has the following values (2, 1, 2, 2, 6, 4, 2, 5)
+	 *    this method returns 6 and doesn't remove that object. 
+	 * </pre>
+	 * If the queue is empty, throws java.util.NoSuchElementException.
+	 * @return 
+	 * @throws java.util.NoSuchElementException
+	 */
 	public E peekMaximum();
 	/**
 	* Looks at the object which has the minimum value among the all objects without removing it from the queue.
