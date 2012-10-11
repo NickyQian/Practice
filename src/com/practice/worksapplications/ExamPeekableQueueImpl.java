@@ -61,6 +61,7 @@ public class ExamPeekableQueueImpl<E extends Comparable<E>> implements
 		return queue.size();
 	}
 	
+	//for testing
 	public static void main(String[] args){
 		ExamPeekableQueueImpl<Integer> queueImpl = new ExamPeekableQueueImpl<Integer>();
 		queueImpl.enqueue(6);

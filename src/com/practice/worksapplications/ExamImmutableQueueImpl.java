@@ -1,11 +1,13 @@
 package com.practice.worksapplications;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ExamImmutableQueueImpl<E> implements ExamImmutableQueue<E> {
 	private List<E> queue;
+
 	public ExamImmutableQueueImpl() {
 		queue = new ArrayList<E>();
 	}
@@ -18,9 +20,9 @@ public class ExamImmutableQueueImpl<E> implements ExamImmutableQueue<E> {
 		if (e == null) {
 		throw new IllegalArgumentException();
 		}
-		queue.add(e);
-		ExamImmutableQueueImpl<E> result = new ExamImmutableQueueImpl<E>(queue);
-		queue.remove(queue.size()-1);
+		List<E> clone = new LinkedList<E>(queue);
+		clone.add(e);
+		ExamImmutableQueueImpl<E> result = new ExamImmutableQueueImpl<E>(clone);
 		return result;
 	}
 
@@ -28,8 +30,8 @@ public class ExamImmutableQueueImpl<E> implements ExamImmutableQueue<E> {
 	public ExamImmutableQueue<E> dequeue() {
 		if (queue.isEmpty()) {
 			throw new NoSuchElementException();
-		}
-		List<E> clone = new ArrayList<E>(queue);
+		}	
+		List<E> clone = new LinkedList<E>(queue);
 		clone.remove(0);
 		return new ExamImmutableQueueImpl<E>(clone);
 	}
