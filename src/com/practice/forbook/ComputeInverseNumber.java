@@ -30,36 +30,45 @@ public class ComputeInverseNumber {
 		int count = 0;
 		int n1 = mid - begin + 1;
 		int n2 = end - mid;
-		int[] left = new int[n1+1];
-		int[] right = new int[n2+1];
+		int[] left = new int[n1];
+		int[] right = new int[n2];
 		for(int m = 0; m < n1; m++) {
 			left[m] = inputArray[begin+m];
 		}
 		for(int m = 0; m < n2; m++) {
 			right[m] = inputArray[mid+1+m];
 		}
-		// Here is not perfect! 
-		int MAX = Integer.MAX_VALUE;
-		left[n1] = MAX;
-		right[n2] = MAX;
+
 		int  i=0;
 		int  j=0;
 		for(int k = begin; k <= end; k++ ){
-			if(left[i] <= right[j]){ // stable
-				inputArray[k] = left[i]; // sort!
-				i++;
-			} else {
-				inputArray[k] = right[j];  // sort!					
+			// if the left or right comes to last,
+			// just copy the array.
+			if(i == n1){
+				inputArray[k] = right[j];
 				j++;
-				count = n1 - i + count; // because two parts are in order. 
-										// And the number in the left after i are all inversion.
+				count = n1 - i + count;
+			} else if( j == n2){
+				inputArray[k] = left[i];
+				i++;
+			}
+			else {
+				if(left[i] <= right[j]){ // stable
+					inputArray[k] = left[i]; // sort!
+					i++;
+				} else {
+					inputArray[k] = right[j];  // sort!					
+					j++;
+					count = n1 - i + count; // because two parts are in order. 
+											// And the number in the left after i are all inversion.
+				}
 			}
 		}
 		return count;
 	}
 	
 	public static void main(String[] args) {
-		int[] inputArray = {2,3,4,4,1};
+		int[] inputArray = {2,3,4,4,1,12,4,5,11,14,10};
 		ComputeInverseNumber inverseN = new ComputeInverseNumber();
 		System.out.println(inverseN.findInverseNumber(inputArray));
 		System.out.println(inverseN.findInverseNumberQuickly(inputArray,0,inputArray.length-1));
