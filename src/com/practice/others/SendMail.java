@@ -2,9 +2,8 @@ package com.practice.others;
 
 /*****************************************************
 * 
-* @author wuzhenzhong
-* 
-* @since May 6, 2009 
+copy form Baidu and Modified.
+* @modify Nicky- Qianlei
 * 
 * 该例子演示了使用javamail发送html格式邮件，
 * 
@@ -39,7 +38,7 @@ public void SendMail2(String title, String attachment){
         BodyPart messageBodyPart = new MimeBodyPart();
         Multipart multipart = new MimeMultipart();
         String from = "nicky_qianlei@163.com";
-        String to[]={"leqian@ebay.com"};
+        String to[]={"nicky_qianlei@163.com"};
         String cc[] = {""};
         String bcc[] = {""};
         String content = "<font style=\"BACKGROUND-COLOR: #666699\" color=\"#ff0000\" size=\"5\">测试格式化内容测试<a href=\"\">格式化内容</a>测试格<em>式化</em>内容</font>";
@@ -74,7 +73,7 @@ public void SendMail2(String title, String attachment){
             //设置e-mail发送时间
             message.setSentDate(new Date());
             //设置e-mail内容
-            message.setText(content);
+//            message.setText(content);
             //建立第一部分：文本正文
             messageBodyPart.setContent(content, "text/html;charset=gbk");//给BodyPart对象设置内容和格式/编码方式    
             multipart.addBodyPart(messageBodyPart);
@@ -97,7 +96,7 @@ public void SendMail2(String title, String attachment){
             //根据Session生成Transport对象
             transport = sendsession.getTransport("smtp");
             //连接到SMTP服务器
-            transport.connect("smtp.163.com", "nicky_qianlei", "Nickychao2613");
+            transport.connect("smtp.163.com", "nicky_qianlei", "");
             //发送e-mail
             transport.sendMessage(message, message.getAllRecipients());
             //关闭Transport连接
@@ -130,5 +129,6 @@ public void SendMail2(String title, String attachment){
      SendMail m = new SendMail();
 //      m.SendMail2("Test", "D:\\tts.txt");
         m.SendMail2("Test", "");
+        System.out.println("finished.");
     }
 }
