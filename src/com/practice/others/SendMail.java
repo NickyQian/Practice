@@ -41,7 +41,9 @@ public void SendMail2(String title, String attachment){
         String to[]={"nicky_qianlei@163.com"};
         String cc[] = {""};
         String bcc[] = {""};
-        String content = "<font style=\"BACKGROUND-COLOR: #666699\" color=\"#ff0000\" size=\"5\">测试格式化内容测试<a href=\"\">格式化内容</a>测试格<em>式化</em>内容</font>";
+        String s = "<font style=\"BACKGROUND-COLOR: #666699\" color=\"#ff0000\" size=\"5\">测试格式化内容测试<a href=\"\">格式化内容</a>测试格<em>式化</em>内容</font>";
+        String content = "<div>Rule Name : </div><div>Rule Description : <div><table border = \"1\" cellpadding = \"10\" cellspacing = \"0\" style = \"border-collapse: collapse;\"><tr><th>zero count</th><th>14 days average</th><th>change</th></tr><tbody><tr><td>15.00</td><td>20.00</td><td>-10%</td></tr></tbody></table>";
+        
         try{
             sendsession = Session.getInstance(props, null);
             //向属性中写入SMTP服务器的地址
@@ -49,7 +51,7 @@ public void SendMail2(String title, String attachment){
             //设置SMTP服务器需要权限认证
             props.put("mail.smtp.auth", "true");
             //设置输出调试
-            //sendsession.setDebug(true);
+            sendsession.setDebug(true);
             //根据Session生成Message对象
             message = new MimeMessage(sendsession);
             //设置发信人地址
@@ -73,7 +75,7 @@ public void SendMail2(String title, String attachment){
             //设置e-mail发送时间
             message.setSentDate(new Date());
             //设置e-mail内容
-//            message.setText(content);
+//          message.setText(content);
             //建立第一部分：文本正文
             messageBodyPart.setContent(content, "text/html;charset=gbk");//给BodyPart对象设置内容和格式/编码方式    
             multipart.addBodyPart(messageBodyPart);
@@ -112,7 +114,7 @@ public void SendMail2(String title, String attachment){
     public String getMailList(String[] mailArray){
          
         StringBuffer toList = new StringBuffer();
-    int length = mailArray.length;
+        int length = mailArray.length;
         if(mailArray!=null && length <2){
              toList.append(mailArray[0]);
         }else{
