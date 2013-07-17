@@ -1,7 +1,7 @@
 package com.practice.others;
 
 /*
- * Ì½ÌÖString ÅÐ¶Ï == µÄ½á¹û
+ * Ì½æŽ¢è®¨String åˆ¤æ–­ == çš„ç»“æžœ
  */
 public class JudgeStringEqual {
 

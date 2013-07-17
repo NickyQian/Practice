@@ -2,20 +2,20 @@ package com.practice.computeprime;
 
 
 /*
- * É¸Ñ¡·¨
- * ´Ó2¿ªÊ¼ È¥³ý2µÄ±¶Êý
- * ÔÙÈ¥ºóÃæµÚÒ»¸öÃ»±»È¥³ýµÄÊý£¬ÔÙÉ¸Ñ¡´ËÊýµÄ±¶ÊýÖ±µ½½áÊøÎªÖ¹¡£
- * Ê£ÏÂµÄÊýÔòÎªËØÊý¡£
+ * ç­›é€‰æ³•
+ * ä»Ž2å¼€å§‹ åŽ»é™¤2çš„å€æ•°
+ * å†åŽ»åŽé¢ç¬¬ä¸€ä¸ªæ²¡è¢«åŽ»é™¤çš„æ•°ï¼Œå†ç­›é€‰æ­¤æ•°çš„å€æ•°ç›´åˆ°ç»“æŸä¸ºæ­¢ã€‚
+ * å‰©ä¸‹çš„æ•°åˆ™ä¸ºç´ æ•°ã€‚
  * 
- * É¸Ñ¡ ÌÞ³ýµÄÊý¶¼±ê¼ÇÎª0 ×îºóÊä³ö²»Îª0µÄÖµ¼´ÎªËØÊý¡£
+ * ç­›é€‰ å‰”é™¤çš„æ•°éƒ½æ ‡è®°ä¸º0 æœ€åŽè¾“å‡ºä¸ä¸º0çš„å€¼å³ä¸ºç´ æ•°ã€‚
  */
 public class PrimeFilter {
 	public static void main(String[] arg){
 		int[] num = new int[101];
-		for(int i = 1; i <= 100; i++){					//³õÊ¼»¯Êý×é Ê¹µÃÏÂ±ê¼´ÎªËù´æµÄÊý¡£0~100¹²101¸öÊý¡£
+		for(int i = 1; i <= 100; i++){					//åˆå§‹åŒ–æ•°ç»„ ä½¿å¾—ä¸‹æ ‡å³ä¸ºæ‰€å­˜çš„æ•°ã€‚0~100å…±101ä¸ªæ•°ã€‚
 			num[i] = i;
 		}
-		num[1] = 0; 									// ÈÏÎª 1²»ÊÇËØÊý¡£
+		num[1] = 0; 									 // è®¤ä¸º 1ä¸æ˜¯ç´ æ•°ã€‚
 		for(int i = 2; i<100; i++){
 			if(num[i] != 0){
 				for(int j = i + 1; j<= 100; j++){

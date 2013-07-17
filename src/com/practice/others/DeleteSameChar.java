@@ -40,11 +40,11 @@ public class DeleteSameChar {
 		while(k.hasNext()){
 			System.out.println(k.next());
 		}
-		System.out.println("-------·Ö¸îÏß---------");
+		System.out.println("-------åˆ†å‰²çº¿--------");
 		for(String str:s){
 			System.out.println(str);
 		}
-		System.out.println("-------·Ö¸îÏß---------");
+		System.out.println("-------åˆ†å‰²çº¿---------");
 		for(Object q: s.toArray()){
 			System.out.println(q.toString());
 		}

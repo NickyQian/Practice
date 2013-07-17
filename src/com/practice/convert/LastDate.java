@@ -31,8 +31,8 @@ public class LastDate {
 		InetAddress addr;
 		try {
 			addr = InetAddress.getLocalHost();
-			String ip = addr.getHostAddress().toString();//获得本机IP
-			String address = addr.getHostName().toString();//获得本机名称
+			String ip = addr.getHostAddress().toString();// 鑾峰緱鏈満IP
+			String address = addr.getHostName().toString();//鑾峰緱鏈満鍚嶇О
 			System.out.println(ip);
 			System.out.println(address);
 		} catch (UnknownHostException e) {

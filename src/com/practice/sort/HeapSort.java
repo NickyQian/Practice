@@ -5,14 +5,14 @@ package com.practice.sort;
 public class HeapSort {
 
 	/*
-	 * ½«Êı×éµ÷ÕûÎªĞ¡¸ù¶Ñ£¬¼´ÓÉĞ¡µ½´óÅÅĞò
+	 * å°†æ•°ç»„è°ƒæ•´ä¸ºå°æ ¹å †ï¼Œå³ç”±å°åˆ°å¤§æ’åº
 	 */
 	public static int[] heap = new int[] { 1, 3, 7, 5, 2, 8, 4, 6, 10, 9 };
 
 	public static void main(String[] args) {
 		int temp;
 		/*
-		 * ´´½¨¶Ñ£¨¶Ô¸Ã¶Ñ½øĞĞ¼òµ¥µÄÅÅĞò£© ¡¡¡¡
+		 *  åˆ›å»ºå †ï¼ˆå¯¹è¯¥å †è¿›è¡Œç®€å•çš„æ’åºï¼‰
 		 */
 		CreateHeap();
 		for (int i = heap.length - 1; 0 < i; i--) {
@@ -20,67 +20,67 @@ public class HeapSort {
 			heap[0] = heap[i];
 			heap[i] = temp;
 			/*
-			 * Õ¹Ê¾Ã¿´ÎÅÅĞòºóµÄ½á¹û ¡¡¡¡
+			 *  å±•ç¤ºæ¯æ¬¡æ’åºåçš„ç»“æœ
 			 */
 			for (int j = 0; j < heap.length; j++) {
 				System.out.print(heap[j] + " ");
 			}
-			System.out.println();// »»ĞĞ
+			System.out.println(); // æ¢è¡Œ
 			/*
-			 * ´Ó¶Ñ¶¥½øĞĞµ÷Õû£¬Ê¹Î´ÅÅĞò¶ÑÖĞ×î´ó¹Ø¼ü×Öµ½¶Ñ¶¥ 	¡¡¡¡
+			 *  ä»å †é¡¶è¿›è¡Œè°ƒæ•´ï¼Œä½¿æœªæ’åºå †ä¸­æœ€å¤§å…³é”®å­—åˆ°å †é¡¶
 			 */
 			AdjustHeap(0, i);
 		}
 	}
 
 	/*
-	 * µ÷Õû¶ÑÊ¹Æä¶Ñ¶¥ÎªÎ´ÅÅĞò¶ÑÖĞ×î´ó¹Ø¼ü×Ö
+	 * è°ƒæ•´å †ä½¿å…¶å †é¡¶ä¸ºæœªæ’åºå †ä¸­æœ€å¤§å…³é”®å­—
 	 */
 	public static void AdjustHeap(int location, int unSortlength) {
 		int temp;
 		int tempLoc;
 		/*
-		 * È·±£×óÓÒ½Úµã´æÔÚ
+		 * ç¡®ä¿å·¦å³èŠ‚ç‚¹å­˜åœ¨
 		 */
 		if ((tempLoc = (location + 1) * 2) < unSortlength) {
 			
-			 // ÅĞ¶Ï×óÓÒ½Úµã´óĞ¡
+		    // åˆ¤æ–­å·¦å³èŠ‚ç‚¹å¤§å°
 			if (heap[tempLoc] >= heap[tempLoc - 1]) {
 				
-				// ÅĞ¶Ï¸¸½ÚµãÓë×Ó½ÚµãµÄ´óĞ¡£¬Èô¸¸½ÚµãĞ¡£¬ÔòÓë´óµÄ×Ó½Úµã»»Î»
+			 // åˆ¤æ–­çˆ¶èŠ‚ç‚¹ä¸å­èŠ‚ç‚¹çš„å¤§å°ï¼Œè‹¥çˆ¶èŠ‚ç‚¹å°ï¼Œåˆ™ä¸å¤§çš„å­èŠ‚ç‚¹æ¢ä½
 				if (heap[location] < heap[tempLoc]) {
 					temp = heap[location];
 					heap[location] = heap[tempLoc];
 					heap[tempLoc] = temp;
 					/*
-					 * µİ¹é·¨¶Ô»»Î»ºóµÄ×Ó½Úµã¼°Æä×Ó½Úµã½øĞĞµ÷Õû (Nice!)
+					 *  é€’å½’æ³•å¯¹æ¢ä½åçš„å­èŠ‚ç‚¹åŠå…¶å­èŠ‚ç‚¹è¿›è¡Œè°ƒæ•´ (Nice!)
 					 */
 					AdjustHeap(tempLoc, unSortlength);
 				}
-			} else {//×ó½Úµã´óÓÚÓÒ½Úµã
+			} else { //å·¦èŠ‚ç‚¹å¤§äºå³èŠ‚ç‚¹
 				
 				if (heap[location] < heap[tempLoc - 1]) {
 					temp = heap[location];
 					heap[location] = heap[tempLoc - 1];
 					heap[tempLoc - 1] = temp;
 					/*
-					 * µİ¹é·¨
-					 * ¶Ô»»Î»ºóµÄ×Ó½Úµã¼°Æä×Ó½Úµã½øĞĞµ÷Õû (Nice!)
+					 *é€’å½’æ³•
+					 * å¯¹æ¢ä½åçš„å­èŠ‚ç‚¹åŠå…¶å­èŠ‚ç‚¹è¿›è¡Œè°ƒæ•´ (Nice!)
 					 */
 					AdjustHeap(tempLoc - 1, unSortlength);
 				}
 			}
 		}
 		/*
-		 * È·±£×ó½Úµã´æÔÚ
+		 * ç¡®ä¿å·¦èŠ‚ç‚¹å­˜åœ¨
 		 */
 		else if ((tempLoc = (location + 1) * 2 - 1) < unSortlength) {
 			/*
-			 * Óë×ó½Úµã½øĞĞ±È½Ï
+			 * ä¸å·¦èŠ‚ç‚¹è¿›è¡Œæ¯”è¾ƒ
 			 */
 			if (heap[location] < heap[tempLoc]) {
 				/*
-				 * ×ó×Ó½Úµã´óÓÚ¸¸½Úµã£¬½«Á½Õß½øĞĞ»»Î»
+				 * å·¦å­èŠ‚ç‚¹å¤§äºçˆ¶èŠ‚ç‚¹ï¼Œå°†ä¸¤è€…è¿›è¡Œæ¢ä½
 				 */
 				temp = heap[location];
 				heap[location] = heap[tempLoc];
@@ -91,7 +91,7 @@ public class HeapSort {
 	}
 
 	/*
-	 * ´´½¨¶Ñ£¨¶Ô¸Ã¶Ñ½øĞĞ¼òµ¥µÄÅÅĞò£©
+	 * åˆ›å»ºå †ï¼ˆå¯¹è¯¥å †è¿›è¡Œç®€å•çš„æ’åºï¼‰
 	 */
 	public static void CreateHeap() {
 		for (int i = heap.length - 1; i >= 0; i--) {
