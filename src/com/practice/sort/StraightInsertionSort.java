@@ -1,10 +1,10 @@
 package com.practice.sort;
 
 /*
- * ֱ�Ӳ�������
- * �����ǰ�棺���򲿷� ���棺���򲿷�
- * �Ӵ��򲿷ֵĵ�һ�� �����򲿷��ҵ����ʵ�λ��
- * Ȼ���������������ƣ��ڳ�λ�ø��µ�����
+   直接插入排序法
+ * 数组分前面：有序部分 后面：待序部分
+ * 从待序部分的第一个 在有序部分找到合适的位置
+ * 然后整个有序往后移，腾出位置给新的数。
  */
 public class StraightInsertionSort {
 	public int[] dataToSort = { 9, 2, 1, 3, 4, 5, 8, 5, 1, 17, 45, 18, 46, 89,

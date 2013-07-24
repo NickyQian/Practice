@@ -2,7 +2,7 @@ package com.practice.forbook;
 
 /**
  * 
- * ÓÐN¸öÈËÉÏÂ¥ °´ÏÂµçÌÝ µ±µçÌÝÖ»ÄÜÔÚÍ£Ò»´Î Çó³öµçÌÝÍ£µÄÂ¥²ãÊ¹µÃËùÓÐÈËÅÀµÄÂ¥ÌÝÊýÄ¿×îÐ¡
+ * æœ‰Nä¸ªäººä¸Šæ¥¼ æŒ‰ä¸‹ç”µæ¢¯ å½“ç”µæ¢¯åªèƒ½åœ¨åœä¸€æ¬¡ æ±‚å‡ºç”µæ¢¯åœçš„æ¥¼å±‚ä½¿å¾—æ‰€æœ‰äººçˆ¬çš„æ¥¼æ¢¯æ•°ç›®æœ€å°
  * if can stop N times ? (open question)
  * @author Nicky
  * 

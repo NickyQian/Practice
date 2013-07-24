@@ -5,132 +5,116 @@ package com.practice.others;
 copy form Baidu and Modified.
 * @modify Nicky- Qianlei
 * 
-* ¸ÃÀý×ÓÑÝÊ¾ÁËÊ¹ÓÃjavamail·¢ËÍhtml¸ñÊ½ÓÊ¼þ£¬
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ê¹ï¿½ï¿½javamailï¿½ï¿½ï¿½ï¿½htmlï¿½ï¿½Ê½ï¿½Ê¼ï¿½ï¿½ï¿½
 * 
-* ·Ö±ðÒÔ·¢ËÍ´ø¸½¼þºÍ²»´ø¸½¼þÁ½ÖÖÐÎÊ½ÑÝÊ¾
+* ï¿½Ö±ï¿½ï¿½Ô·ï¿½ï¿½Í´ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ê¾
 * 
-* Í¬Ê±ÊµÏÖÁËÏò¶àÈË·¢ÓÊ¼þ
+* Í¬Ê±Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½Ê¼ï¿½
 *****************************************************/
-import java.util.Date;
-import java.util.Properties;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 public class SendMail{
-    @SuppressWarnings("static-access")
-public void SendMail2(String title, String attachment){
-        // »ñµÃÊôÐÔ£¬²¢Éú³ÉSession¶ÔÏó 
-        Properties props = new Properties();
-        Session sendsession;
-        Transport transport;
-        MimeMessage message = null;
-        BodyPart messageBodyPart = new MimeBodyPart();
-        Multipart multipart = new MimeMultipart();
-        String from = "nicky_qianlei@163.com";
-        String to[]={"nicky_qianlei@163.com"};
-        String cc[] = {""};
-        String bcc[] = {""};
-        String s = "<font style=\"BACKGROUND-COLOR: #666699\" color=\"#ff0000\" size=\"5\">²âÊÔ¸ñÊ½»¯ÄÚÈÝ²âÊÔ<a href=\"\">¸ñÊ½»¯ÄÚÈÝ</a>²âÊÔ¸ñ<em>Ê½»¯</em>ÄÚÈÝ</font>";
-        String content = "<div>Rule Name : </div><div>Rule Description : <div><table border = \"1\" cellpadding = \"10\" cellspacing = \"0\" style = \"border-collapse: collapse;\"><tr><th>zero count</th><th>14 days average</th><th>change</th></tr><tbody><tr><td>15.00</td><td>20.00</td><td>-10%</td></tr></tbody></table>";
-        
-        try{
-            sendsession = Session.getInstance(props, null);
-            //ÏòÊôÐÔÖÐÐ´ÈëSMTP·þÎñÆ÷µÄµØÖ·
-            props.put("mail.smtp.host", "smtp.163.com");
-            //ÉèÖÃSMTP·þÎñÆ÷ÐèÒªÈ¨ÏÞÈÏÖ¤
-            props.put("mail.smtp.auth", "true");
-            //ÉèÖÃÊä³öµ÷ÊÔ
-            sendsession.setDebug(true);
-            //¸ù¾ÝSessionÉú³ÉMessage¶ÔÏó
-            message = new MimeMessage(sendsession);
-            //ÉèÖÃ·¢ÐÅÈËµØÖ·
-            message.setFrom(new InternetAddress(from));
-            //ÉèÖÃÊÕÐÅÈËµØÖ·
-            String toList = getMailList(to);
-            InternetAddress[] iaToList = new InternetAddress().parse(toList);
-            message.setRecipients(Message.RecipientType.TO,iaToList);
-            if (cc != null){
-                String ccList = this.getMailList(cc);
-                    InternetAddress[] iaCCList = new InternetAddress().parse(ccList);
-                message.setRecipients(Message.RecipientType.CC,iaCCList);
-                 }
-            if (bcc != null){
-                String bccList = this.getMailList(bcc);
-                    InternetAddress[] iaBCCList = new InternetAddress().parse(bccList);
-                message.setRecipients(Message.RecipientType.BCC,iaBCCList);
-                 }
-            //ÉèÖÃe-mail±êÌâ 
-            message.setSubject(title);
-            //ÉèÖÃe-mail·¢ËÍÊ±¼ä
-            message.setSentDate(new Date());
-            //ÉèÖÃe-mailÄÚÈÝ
-//          message.setText(content);
-            //½¨Á¢µÚÒ»²¿·Ö£ºÎÄ±¾ÕýÎÄ
-            messageBodyPart.setContent(content, "text/html;charset=gbk");//¸øBodyPart¶ÔÏóÉèÖÃÄÚÈÝºÍ¸ñÊ½/±àÂë·½Ê½    
-            multipart.addBodyPart(messageBodyPart);
-            if (!attachment.equals("")){
-                // ½¨Á¢µÚ¶þ²¿·Ö£º¸½¼þ     
-                messageBodyPart = new MimeBodyPart();
-                // »ñµÃ¸½¼þ
-                DataSource source = new FileDataSource(attachment);
-                //ÉèÖÃ¸½¼þµÄÊý¾Ý´¦ÀíÆ÷
-                messageBodyPart.setDataHandler(new DataHandler(source));
-                // ÉèÖÃ¸½¼þÎÄ¼þÃû
-                messageBodyPart.setFileName(attachment);
-                // ¼ÓÈëµÚ¶þ²¿·Ö
-                multipart.addBodyPart(messageBodyPart);
-            }
-            // ½«¶à²¿·ÖÄÚÈÝ·Åµ½e-mailÖÐ
-            message.setContent(multipart);
-            //±£´æ¶ÔÓÚe-mailµÄÐÞ¸Ä
-            message.saveChanges();
-            //¸ù¾ÝSessionÉú³ÉTransport¶ÔÏó
-            transport = sendsession.getTransport("smtp");
-            //Á¬½Óµ½SMTP·þÎñÆ÷
-            transport.connect("smtp.163.com", "nicky_qianlei", "");
-            //·¢ËÍe-mail
-            transport.sendMessage(message, message.getAllRecipients());
-            //¹Ø±ÕTransportÁ¬½Ó
-            transport.close();
-        } catch (MessagingException m){
-            System.out.println(m.toString());
-        } catch (Exception e){
-            e.printStackTrace();
-        } 
-    }
-    
-    //»ñÈ¡ÊÕ¼þÈËµØÖ·
-    public String getMailList(String[] mailArray){
-         
-        StringBuffer toList = new StringBuffer();
-        int length = mailArray.length;
-        if(mailArray!=null && length <2){
-             toList.append(mailArray[0]);
-        }else{
-             for(int i=0;i<length;i++){
-                     toList.append(mailArray[i]);
-                     if(i!=(length-1)){
-                         toList.append(",");
-                     }
-             }
-         }
-     return toList.toString();
-    }
-    public static void main(String args[]){
-     SendMail m = new SendMail();
-//      m.SendMail2("Test", "D:\\tts.txt");
-        m.SendMail2("Test", "");
-        System.out.println("finished.");
-    }
+//    @SuppressWarnings("static-access")
+//public void SendMail2(String title, String attachment){
+//        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Sessionï¿½ï¿½ï¿½ï¿½ 
+//        Properties props = new Properties();
+//        Session sendsession;
+//        Transport transport;
+//        MimeMessage message = null;
+//        BodyPart messageBodyPart = new MimeBodyPart();
+//        Multipart multipart = new MimeMultipart();
+//        String from = "nicky_qianlei@163.com";
+//        String to[]={"nicky_qianlei@163.com"};
+//        String cc[] = {""};
+//        String bcc[] = {""};
+//        String s = "<font style=\"BACKGROUND-COLOR: #666699\" color=\"#ff0000\" size=\"5\">ï¿½ï¿½ï¿½Ô¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½<a href=\"\">ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>ï¿½ï¿½ï¿½Ô¸ï¿½<em>Ê½ï¿½ï¿½</em>ï¿½ï¿½ï¿½ï¿½</font>";
+//        String content = "<div>Rule Name : </div><div>Rule Description : <div><table border = \"1\" cellpadding = \"10\" cellspacing = \"0\" style = \"border-collapse: collapse;\"><tr><th>zero count</th><th>14 days average</th><th>change</th></tr><tbody><tr><td>15.00</td><td>20.00</td><td>-10%</td></tr></tbody></table>";
+//        
+//        try{
+//            sendsession = Session.getInstance(props, null);
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½SMTPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·
+//            props.put("mail.smtp.host", "smtp.163.com");
+//            //ï¿½ï¿½ï¿½ï¿½SMTPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÈ¨ï¿½ï¿½ï¿½ï¿½Ö¤
+//            props.put("mail.smtp.auth", "true");
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//            sendsession.setDebug(true);
+//            //ï¿½ï¿½ï¿½Sessionï¿½ï¿½ï¿½Messageï¿½ï¿½ï¿½ï¿½
+//            message = new MimeMessage(sendsession);
+//            //ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ö·
+//            message.setFrom(new InternetAddress(from));
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ö·
+//            String toList = getMailList(to);
+//            InternetAddress[] iaToList = new InternetAddress().parse(toList);
+//            message.setRecipients(Message.RecipientType.TO,iaToList);
+//            if (cc != null){
+//                String ccList = this.getMailList(cc);
+//                    InternetAddress[] iaCCList = new InternetAddress().parse(ccList);
+//                message.setRecipients(Message.RecipientType.CC,iaCCList);
+//                 }
+//            if (bcc != null){
+//                String bccList = this.getMailList(bcc);
+//                    InternetAddress[] iaBCCList = new InternetAddress().parse(bccList);
+//                message.setRecipients(Message.RecipientType.BCC,iaBCCList);
+//                 }
+//            //ï¿½ï¿½ï¿½ï¿½e-mailï¿½ï¿½ï¿½ï¿½ 
+//            message.setSubject(title);
+//            //ï¿½ï¿½ï¿½ï¿½e-mailï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+//            message.setSentDate(new Date());
+//            //ï¿½ï¿½ï¿½ï¿½e-mailï¿½ï¿½ï¿½ï¿½
+////          message.setText(content);
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö£ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
+//            messageBodyPart.setContent(content, "text/html;charset=gbk");//ï¿½ï¿½BodyPartï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝºÍ¸ï¿½Ê½/ï¿½ï¿½ï¿½ë·½Ê½    
+//            multipart.addBodyPart(messageBodyPart);
+//            if (!attachment.equals("")){
+//                // ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½     
+//                messageBodyPart = new MimeBodyPart();
+//                // ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½
+//                DataSource source = new FileDataSource(attachment);
+//                //ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½
+//                messageBodyPart.setDataHandler(new DataHandler(source));
+//                // ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+//                messageBodyPart.setFileName(attachment);
+//                // ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½
+//                multipart.addBodyPart(messageBodyPart);
+//            }
+//            // ï¿½ï¿½ï¿½à²¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý·Åµï¿½e-mailï¿½ï¿½
+//            message.setContent(multipart);
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½e-mailï¿½ï¿½ï¿½Þ¸ï¿½
+//            message.saveChanges();
+//            //ï¿½ï¿½ï¿½Sessionï¿½ï¿½ï¿½Transportï¿½ï¿½ï¿½ï¿½
+//            transport = sendsession.getTransport("smtp");
+//            //ï¿½ï¿½ï¿½Óµï¿½SMTPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//            transport.connect("smtp.163.com", "nicky_qianlei", "");
+//            //ï¿½ï¿½ï¿½ï¿½e-mail
+//            transport.sendMessage(message, message.getAllRecipients());
+//            //ï¿½Ø±ï¿½Transportï¿½ï¿½ï¿½ï¿½
+//            transport.close();
+//        } catch (MessagingException m){
+//            System.out.println(m.toString());
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        } 
+//    }
+//    
+//    //ï¿½ï¿½È¡ï¿½Õ¼ï¿½ï¿½Ëµï¿½Ö·
+//    public String getMailList(String[] mailArray){
+//         
+//        StringBuffer toList = new StringBuffer();
+//        int length = mailArray.length;
+//        if(mailArray!=null && length <2){
+//             toList.append(mailArray[0]);
+//        }else{
+//             for(int i=0;i<length;i++){
+//                     toList.append(mailArray[i]);
+//                     if(i!=(length-1)){
+//                         toList.append(",");
+//                     }
+//             }
+//         }
+//     return toList.toString();
+//    }
+//    public static void main(String args[]){
+//     SendMail m = new SendMail();
+////      m.SendMail2("Test", "D:\\tts.txt");
+//        m.SendMail2("Test", "");
+//        System.out.println("finished.");
+//    }
 }

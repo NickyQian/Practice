@@ -1,10 +1,10 @@
 package com.practice.sort;
 
 /*
- * ¼òµ¥Ñ¡ÔñÅÅĞòËã·¨
- * Ã¿´Î´ÓÎŞĞò¶ÓÁĞÖĞÑ¡Ò»¸ö×îĞ¡µÄ
- * ÓÚÎŞĞò¶ÓÁĞÖĞµÄµÚÒ»¸ö½»»»Î»ÖÃ
- * ×îÖÕÅÅĞòÎª´ÓĞ¡µ½´ó¡£
+ * ç®€å•é€‰æ‹©æ’åºç®—æ³•
+ * æ¯æ¬¡ä»æ— åºé˜Ÿåˆ—ä¸­é€‰ä¸€ä¸ªæœ€å°çš„
+ * äºæ— åºé˜Ÿåˆ—ä¸­çš„ç¬¬ä¸€ä¸ªäº¤æ¢ä½ç½®
+ * æœ€ç»ˆæ’åºä¸ºä»å°åˆ°å¤§ã€‚
  */
 public class SimpleSelectionSort {
 	public int[] dataToSort = { 9, 2, 1, 3, 4, 5, 8, 5, 1, 17, 45, 18, 46, 89,
@@ -12,11 +12,11 @@ public class SimpleSelectionSort {
 	public void selectionSort(){
 		
 		for(int i = 0; i<dataToSort.length-1; i++){
-			int min = dataToSort[i];  //Ä¬ÈÏµÚÒ»¸öÖµÎª×îĞ¡µÄ
+			int min = dataToSort[i];//é»˜è®¤ç¬¬ä¸€ä¸ªå€¼ä¸ºæœ€å°çš„
 			int index = i;
 			for(int j = i+1; j<dataToSort.length; j++){
 					if(min > dataToSort[j]){
-						min = dataToSort[j];   // ±È½Ï ½»»» ±£Ö¤minÎª×îĞ¡
+						min = dataToSort[j];    // æ¯”è¾ƒ äº¤æ¢ ä¿è¯minä¸ºæœ€å°
 						index = j;
 					}
 					int temp = dataToSort[i];

@@ -1,10 +1,10 @@
 package com.practice.thread;
 /*
- * ��̨�߳� �����߳̽�����ʱ�򣬺�̨�߳�Ҳ�����
+ * 后台线程 当主线程结束的时候，后台线程也会结束
  * 
- * �������Ϊ��̨�߳� Daemon����main������  �����̻߳������ִ�С�
- * �����߳�ֹͣʱ����̨�߳�����ֹͣ������ִ������ִ��finally��
- * ���������ŵķ�ʽ�رպ�̨�̡߳�
+ * 如果不设为后台线程 Daemon，则main结束后  其他线程还会继续执行。
+ * 当主线程停止时，后台线程立刻停止，不会执行总是执行finally。
+ * 不能以优雅的方式关闭后台线程。
  */
 public class SimpleDaemons implements Runnable {
 	public void run(){

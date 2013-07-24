@@ -1,6 +1,6 @@
 package com.practice.forbook;
 
-// ¼ÆËãÄæĞòÊı  Inverse Number
+// è®¡ç®—é€†åºæ•°  Inverse Number
 public class ComputeInverseNumber {	
 	// Direct Counting
 	public int findInverseNumber(int[] inputArray){ // O(n^2)
@@ -15,7 +15,7 @@ public class ComputeInverseNumber {
 		return count;
 	}
 	
-	public int findInverseNumberQuickly(int[] inputArray, int begin, int end) {// ·ÖÖÎ·¨(Divide and Conquer) 
+	public int findInverseNumberQuickly(int[] inputArray, int begin, int end) {// ï¿½ï¿½ï¿½Î·ï¿½(Divide and Conquer) 
 		int count = 0;
 		if(begin < end) { 
 			int mid = (begin + end) / 2;
