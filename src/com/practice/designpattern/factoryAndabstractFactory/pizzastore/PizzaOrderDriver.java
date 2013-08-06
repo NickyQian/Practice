@@ -1,6 +1,6 @@
 package com.practice.designpattern.factoryAndabstractFactory.pizzastore;
 
-public class PizzaOrder {
+public class PizzaOrderDriver {
 
     /**
      * @param args
