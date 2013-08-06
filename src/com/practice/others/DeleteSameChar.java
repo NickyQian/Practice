@@ -6,11 +6,14 @@ import java.util.Set;
 
 
 public class DeleteSameChar {
-	private String longStr = "abcdefghijklmnopqrstuvwxyz";
-	private String shortStr = "cd";
+	@SuppressWarnings("unused")
+    private String longStr = "abcdefghijklmnopqrstuvwxyz";
+	@SuppressWarnings("unused")
+    private String shortStr = "cd";
 	
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	public String deleteChartFromLongStrInShort(String longStr, String shortStr){
-		Set longStrHash = new HashSet();
+        Set longStrHash = new HashSet();
 		for(char s : longStr.toCharArray()) {
 			longStrHash.add(s);
 		}

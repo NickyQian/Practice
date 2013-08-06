@@ -33,7 +33,8 @@ public class ReflectTest {
 	 * @throws NoSuchMethodException 
 	 * @throws SecurityException 
 	 */
-	public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException, SecurityException, NoSuchMethodException {
+	@SuppressWarnings({ "rawtypes", "unused" })
+    public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException, SecurityException, NoSuchMethodException {
 		// TODO Auto-generated method stub
 		Children c = new Children();
 		 c.setData(10);
@@ -41,7 +42,7 @@ public class ReflectTest {
 		System.out.println(c.getData());
 		
 		Class<?> s = Class.forName("com.practice.others.Children");
-		Constructor[] cons =  s.getConstructors();
+        Constructor[] cons =  s.getConstructors();
 		Constructor con = s.getConstructor(new Class[] {int.class});
 		ReflectTest object = (ReflectTest)con.newInstance(20); // parse to ReflectTest, actually is class Children
 		object.setData(10);
