@@ -1,6 +1,13 @@
 package com.practice.designpattern.decorator;
-
-public class CoffeeShop {
+/**
+ * 装饰者模式
+ * 动态地将责任附加到对象上。
+ * 若要扩展功能，装饰者提供了比继承
+ * 更有弹性的替代方案。
+ * @author qianlei
+ *
+ */
+public class CoffeeShopDrive {
     
     public static void main(String[] args) {
         // 先来一杯深度烘焙咖啡

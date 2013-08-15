@@ -2,7 +2,14 @@ package com.practice.designpattern.command;
 
 import com.practice.designpattern.command.homeapplications.DVDPlayer;
 import com.practice.designpattern.command.homeapplications.Light;
-
+/**
+ * 命令模式
+ * 将“请求”封装成对象，以便使用不同的请求、
+ * 队列或者日志来参数化其他对象。命令模式也
+ * 支持可撤销的操作。
+ * @author qianlei
+ *
+ */
 public class TestDriver {
     public static void main(String[] args) {
         RemoteController controller = new RemoteController();

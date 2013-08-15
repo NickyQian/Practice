@@ -1,6 +1,12 @@
 package com.practice.designpattern.strategy;
-
-public class Test {
+/**
+ * 策略模式：
+ * 定义了算法族，让它们之间可以互换，
+ * 此模式让算法的变化独立与使用算法的客户。
+ * @author qianlei
+ *
+ */
+public class TestDrive {
 
     public static void main(String[] args) {
         Duck mallardDuck = new MallardDuck();
