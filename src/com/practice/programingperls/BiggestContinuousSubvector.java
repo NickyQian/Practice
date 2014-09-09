@@ -100,7 +100,7 @@ public class BiggestContinuousSubvector {
 
     public static void main(String[] args) {
         float[] source = { 1, 2, 4, 5, -9, 1 };
-//        float[] source1 = new float[] { 1, 5, 4, -2, 3 };
+        // float[] source1 = new float[] { 1, 5, 4, -2, 3 };
         float[] source1 = new float[] { -1, -5, -4, -2, -3 };
         BiggestContinuousSubvector testDriver = new BiggestContinuousSubvector();
         System.out.println(testDriver.findBiggest(source));
