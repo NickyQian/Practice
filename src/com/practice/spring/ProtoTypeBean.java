@@ -10,6 +10,10 @@ public class ProtoTypeBean {
         value.set(++h);
     }
 
+    public void reset() {
+        value.remove();
+    }
+
     public int getValue() {
         return value.get();
     }

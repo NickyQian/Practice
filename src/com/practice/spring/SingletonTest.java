@@ -34,8 +34,9 @@ public class SingletonTest {
                 System.out.println("thread name:"
                         + Thread.currentThread().getName());
                 System.out.println("proto1 value:" + proto1.getValue());
+                proto1.reset();
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -52,6 +53,7 @@ public class SingletonTest {
                     System.out.println("thread name:"
                             + Thread.currentThread().getName());
                     System.out.println("proto2 value:" + proto2.getValue());
+                    proto2.reset();
                     count.countDown();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -61,7 +63,7 @@ public class SingletonTest {
         });
         try {
             count.await();
-            System.out.println("end....");
+            System.out.println("End...");
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
