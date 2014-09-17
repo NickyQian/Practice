@@ -13,8 +13,6 @@ public class LogService {
     private final PrintWriter writer;
 
     public LogService(OutputStream out) throws FileNotFoundException {
-        // File file = new File("test.txt");
-        // writer = new PrintWriter(file);
         writer = new PrintWriter(out);
     }
 
@@ -56,7 +54,6 @@ public class LogService {
                         --reservations;
                     }
                     writer.println(msg);
-                    // writer.flush();
                 }
             } catch (InterruptedException e) {
 
@@ -75,10 +72,9 @@ public class LogService {
             logService.log("5");
             logService.log("6");
             logService.log("7");
-            Thread.sleep(5000);
+            Thread.sleep(5000); // Run 5 seconds before shutting down.
             logService.stop();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
