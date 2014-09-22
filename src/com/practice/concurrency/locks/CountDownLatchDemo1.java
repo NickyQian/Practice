@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 闭锁
+ * 
  * 用给定的计数 初始化 CountDownLatch。 由于调用了 countDown() 方法，所以在当前计数到达零之前，await 方法会一直受阻塞。
  * 之后，会释放所有等待的线程，await 的所有后续调用都将立即返回。 这种现象只出现一次——计数无法被重置。如果需要重置计数，请考虑使用
  * CyclicBarrier。

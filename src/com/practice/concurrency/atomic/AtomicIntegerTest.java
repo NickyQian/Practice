@@ -7,6 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
 
+/**
+ * 对array atomic变量来说，一次只有一个索引变量可以变动，并没有功能可以对整个array做atomic化的变动。
+ * 
+ * @author lq00863
+ *
+ */
 public class AtomicIntegerTest {
     @Test
     public void testAll() throws InterruptedException {
