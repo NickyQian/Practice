@@ -17,6 +17,7 @@ public class ProductQueue<T> {
     //
     private int head, tail, count;
 
+    @SuppressWarnings("unchecked")
     public ProductQueue(int maxSize) {
         items = (T[]) new Object[maxSize];
     }
