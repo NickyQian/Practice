@@ -3,7 +3,9 @@ package com.practice.concurrency.container;
 import java.util.Date;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
+/*
+ * CocurrentLinkedQueue是一种线程安全却非阻塞的FIFO队列
+ */
 public class ConcurrentLinkedQueueDemo {
     public static void main(String[] args) throws Exception {
         Queue<String> queue = new ConcurrentLinkedQueue<String>();
