@@ -21,6 +21,7 @@ public class RejectedExecutionDemo {
 
         ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 1, 0,
                 TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1));
+        //pool.allowCoreThreadTimeOut(true);
          pool.setRejectedExecutionHandler(new
          ThreadPoolExecutor.DiscardPolicy());
         // pool.setRejectedExecutionHandler(new
