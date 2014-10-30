@@ -15,4 +15,6 @@
 	<bean id="prototypeBean" class="com.practice.spring.ProtoTypeBean"
 		scope="prototype">
 	</bean>
+	<bean id="singleBean1" class="com.practice.spring.SingletonBean"></bean>
+	<bean id="singleBean2" class="com.practice.spring.SingletonBean"></bean>
 </beans>

@@ -1,6 +1,7 @@
 package com.practice.spring;
 
 public class SingletonBean {
+    public int value;
     private ProtoTypeBean prototypeBean;
 
     public ProtoTypeBean getPrototypeBean() {
