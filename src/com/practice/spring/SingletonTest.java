@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -16,13 +17,18 @@ public class SingletonTest {
     // private SingletonBean single;
     private ApplicationContext applicationContext;
 
+    @Before
+    public void set() {
+        applicationContext = new FileSystemXmlApplicationContext(
+                "src/com/practice/spring/spring-test.xml");
+    }
+
     /**
      * Test two instance have no impact on each other.
      */
     @Test
     public void testDefineTwoInstanceForOneClass() {
-        applicationContext = new FileSystemXmlApplicationContext(
-                "src/com/practice/spring/spring-test.xml");
+
         SingletonBean singleBean1 = (SingletonBean) applicationContext
                 .getBean("singleBean1");
         singleBean1.value = 10;
@@ -34,6 +40,9 @@ public class SingletonTest {
         Assert.assertEquals(40, singleBean2.value);
     }
 
+    /**
+     * test using threadlocal
+     */
     @Test
     public void test() {
         applicationContext = new FileSystemXmlApplicationContext(
@@ -87,5 +96,21 @@ public class SingletonTest {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    /**
+     * test prototype. Proto type beans don't impact eache other.
+     */
+    @Test
+    public void testProtoType() {
+
+        ProtoTypeBean prototype1 = (ProtoTypeBean) applicationContext
+                .getBean("prototypeBean");
+        prototype1.valueStr = "test1";
+        ProtoTypeBean prototype2 = (ProtoTypeBean) applicationContext
+                .getBean("prototypeBean");
+        prototype2.valueStr = "test2";
+        Assert.assertEquals("test1", prototype1.valueStr);
+        Assert.assertEquals("test2", prototype2.valueStr);
     }
 }

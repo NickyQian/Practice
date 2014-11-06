@@ -2,7 +2,7 @@ package com.practice.spring;
 
 public class ProtoTypeBean {
     private ThreadLocal<Integer> value = new ThreadLocal<Integer>();
-
+    public String valueStr;
     public void increase() {
         if (null == value.get())
             value.set(1);
