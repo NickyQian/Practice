@@ -30,7 +30,7 @@ public class ProductQueue<T> {
         lock.lock();
         try {
             while (count == getCapacity()) { //如果队列满了 put阻塞 队列大小有限制 
-                notFull.await();
+                notFull.await();  //await()操作实际上就是释放锁，然后挂起线程，一旦条件满足就被唤醒，再次获取锁！
             }
             items[tail] = t;
             if (++tail == getCapacity()) {

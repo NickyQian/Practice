@@ -1,4 +1,4 @@
-package com.practice.concurrency.container;
+package com.practice.concurrency.collections;
 
 /**
  * http://www.infoq.com/cn/articles/ConcurrentHashMap

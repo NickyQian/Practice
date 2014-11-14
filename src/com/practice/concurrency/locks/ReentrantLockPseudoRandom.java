@@ -1,5 +1,6 @@
 package com.practice.concurrency.locks;
 
+import java.util.Random;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -24,6 +25,7 @@ public class ReentrantLockPseudoRandom {
     }
 
     private int calculateNext(int seed) {
-        return 0;
+        Random s = new Random(seed);
+        return s.nextInt();
     }
 }

@@ -53,10 +53,12 @@ public class CasCounter {
 
     public int increment() {
         int v;
+        int incresedValue;
         do {
             v = getValue();
-        } while (v != value.compareAndSwap(v, v + 1));
-        return v + 1;
+            incresedValue = v + 1;
+        } while (v != value.compareAndSwap(v, incresedValue));
+        return incresedValue;
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.practice.concurrency.container;
+package com.practice.concurrency.collections;
 
 import java.util.Date;
 import java.util.Queue;
