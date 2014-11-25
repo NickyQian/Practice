@@ -25,11 +25,11 @@ public class LinkedBlockingQueueDemo {
 
     // 定义苹果生产者
     class Producer implements Runnable {
-        private String instance;
+        private String workerName;
         private Basket basket;
 
-        public Producer(String instance, Basket basket) {
-            this.instance = instance;
+        public Producer(String workerName, Basket basket) {
+            this.workerName = workerName;
             this.basket = basket;
         }
 
@@ -37,11 +37,11 @@ public class LinkedBlockingQueueDemo {
             try {
                 while (true) {
                     // 生产苹果
-                    System.out.println("生产者准备生产苹果：" + instance);
-                    basket.produce();
-                    System.out.println("生产者生产苹果完毕：" + instance);
-                    // 休眠300ms
+                    System.out.println("生产者准备生产苹果：" + workerName);
+                    // 模拟生产所需时间
                     Thread.sleep(300);
+                    basket.produce();
+                    System.out.println("生产者生产苹果完毕：" + workerName);
                 }
             } catch (InterruptedException ex) {
                 System.out.println("Producer Interrupted");
@@ -51,11 +51,11 @@ public class LinkedBlockingQueueDemo {
 
     // 定义苹果消费者
     class Consumer implements Runnable {
-        private String instance;
+        private String workerName;
         private Basket basket;
 
-        public Consumer(String instance, Basket basket) {
-            this.instance = instance;
+        public Consumer(String workerName, Basket basket) {
+            this.workerName = workerName;
             this.basket = basket;
         }
 
@@ -63,12 +63,12 @@ public class LinkedBlockingQueueDemo {
             try {
                 while (true) {
                     // 消费苹果
-                    System.out.println("消费者准备消费苹果：" + instance);
+                    System.out.println("消费者准备消费苹果：" + workerName);
                     String consumeValue = basket.consume();
-                    System.out.println("消费：" +consumeValue);
-                    System.out.println("消费者消费苹果完毕：" + instance);
-                    // 休眠1000ms
+                    // 模拟消费时间
                     Thread.sleep(1000);
+                    System.out.println("消费：" +consumeValue);
+                    System.out.println("消费者消费苹果完毕：" + workerName);
                 }
             } catch (InterruptedException ex) {
                 System.out.println("Consumer Interrupted");
