@@ -1,7 +1,5 @@
 package com.practice.concurrency.cas;
 
-import org.junit.Assert;
-import org.junit.Test;
 
 public class CasCounter {
 
