@@ -44,7 +44,6 @@ public class ExecutorsDemo {
      */
     public void testNewFixedThreadPool() {
         ExecutorService pool = Executors.newFixedThreadPool(2);
-        // ExecutorService pool = Executors.newFixedThreadPool(1);
         runThread(pool);
     }
 
@@ -79,6 +78,35 @@ public class ExecutorsDemo {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        pool.shutdown();
+    }
+
+    @Test
+    public void testStartThreadInPoolThread() {
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        pool.submit(new Runnable() {
+
+            @Override
+            public void run() {
+                System.out.println("start a new thread....first level.");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out
+                                .println("start a new thread....first leve2.");
+                    }
+
+                }).start();
+
+            }
+
+        });
+        
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         pool.shutdown();

@@ -1,5 +1,7 @@
 package com.practice.concurrency.collections;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * http://www.infoq.com/cn/articles/ConcurrentHashMap
  * 
@@ -21,5 +23,12 @@ package com.practice.concurrency.collections;
  *
  */
 public class ConcurrentMapDemo {
+    static ConcurrentHashMap<String, String> map = new ConcurrentHashMap<String, String>();
+
+//    public static void main(String[] args) {
+//        int ssize = 1;
+//        ssize <<= 4;
+//        System.out.println(ssize);
+//    }
 
 }

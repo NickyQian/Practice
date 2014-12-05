@@ -60,11 +60,8 @@ public class CasCounter {
         } while (v != value.compareAndSwap(v, incresedValue));
         return incresedValue;
     }
-
-    @Test
-    public void test() {
-        CasCounter casCounter = new CasCounter();
-        Assert.assertEquals(1, casCounter.increment());
-    }
-
+//    for(;;) {
+//        compareAndSwap(v, incresedValue)
+//        break
+//    }
 }

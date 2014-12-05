@@ -15,13 +15,11 @@ public class ForkJoinPoolDemo {
         System.out.println("start");
         ForkJoinTask<Integer> fjt = new Fibonacci(12);
         ForkJoinPool fjpool = new ForkJoinPool();
-        System.out.println("start1");
         Future<Integer> result = fjpool.submit(fjt);
-        System.out.println("Do other things...");
 
         System.out.println(result.get());
     }
-    
+
     @SuppressWarnings("serial")
     class Fibonacci extends RecursiveTask<Integer> {
         final int n;
@@ -30,14 +28,15 @@ public class ForkJoinPoolDemo {
             this.n = n;
         }
 
-        private int compute(int small) {
+        private int calculate(int small) {
             final int[] results = { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
             return results[small];
         }
 
+        @Override
         public Integer compute() {
             if (n <= 10) {
-                return compute(n);
+                return calculate(n);
             }
             Fibonacci f1 = new Fibonacci(n - 1);
             Fibonacci f2 = new Fibonacci(n - 2);

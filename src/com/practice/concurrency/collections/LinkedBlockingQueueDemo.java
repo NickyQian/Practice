@@ -89,9 +89,8 @@ public class LinkedBlockingQueueDemo {
         service.submit(producer);
         service.submit(producer2);
         service.submit(consumer);
-        // 程序运行5s后，所有任务停止
         try {
-            Thread.sleep(1000 * 5);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

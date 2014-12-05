@@ -28,7 +28,7 @@ public class AtomicIntegerTest {
         assertEquals(value.getAndSet(5), 3);
         assertEquals(value.get(), 5);
 
-        final int threadSize = 10;
+        final int threadSize = 100;
         Thread[] ts = new Thread[threadSize];
         for (int i = 0; i < threadSize; i++) {
             ts[i] = new Thread() {

@@ -32,8 +32,8 @@ public class VolatileDemo {
         ExecutorService pool = Executors.newCachedThreadPool();
         pool.submit(new Reader(demo));
         pool.submit(new Writer(demo));
-        pool.shutdown();
         Thread.sleep(2000);
+        pool.shutdown();
     }
 
     public class Writer implements Runnable {

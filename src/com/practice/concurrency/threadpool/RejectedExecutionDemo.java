@@ -21,15 +21,13 @@ public class RejectedExecutionDemo {
 
         ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 1, 0,
                 TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(2));
-        //pool.allowCoreThreadTimeOut(true);
-//         pool.setRejectedExecutionHandler(new
-//         ThreadPoolExecutor.DiscardPolicy());
+        // pool.allowCoreThreadTimeOut(true);
+        // pool.setRejectedExecutionHandler(new
         // pool.setRejectedExecutionHandler(new
         // ThreadPoolExecutor.CallerRunsPolicy());
+        //pool.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
          pool.setRejectedExecutionHandler(new
-         ThreadPoolExecutor.AbortPolicy());
-        // pool.setRejectedExecutionHandler(new
-        // ThreadPoolExecutor.DiscardOldestPolicy());
+         ThreadPoolExecutor.DiscardOldestPolicy());
         for (int i = 0; i < 10; i++) {
             final int index = i;
             pool.submit(new Runnable() {
