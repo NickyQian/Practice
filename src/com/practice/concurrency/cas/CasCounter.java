@@ -59,7 +59,7 @@ public class CasCounter {
         return incresedValue;
     }
 //    for(;;) {
-//        compareAndSwap(v, incresedValue)
-//        break
+//        if(compareAndSwap(v, incresedValue))
+//        break;
 //    }
 }

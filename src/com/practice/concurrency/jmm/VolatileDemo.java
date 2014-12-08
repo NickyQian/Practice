@@ -8,11 +8,11 @@ import org.junit.Test;
 public class VolatileDemo {
     public int x = 0;
     // volatile boolean v = false;
-    boolean v = false;
+    volatile boolean v = false;
 
     public void writer() {
         x = 42;
-        v = true; // if v is not volative, dont exist data dependency, maybe
+         v = true; // if v is not volative, dont exist data dependency, maybe
                   // reordered to first.
     }
 
