@@ -1,4 +1,5 @@
 package com.practice.java8.defaultinterface;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class FormulaTest {
@@ -10,7 +11,7 @@ public class FormulaTest {
                 return sqrt(a * 100);
             }
         };
-        formula.calculate(100);     // 100.0
-        formula.sqrt(16);           // 4.0
+        Assert.assertEquals("100.0",String.valueOf(formula.calculate(100)));
+        Assert.assertEquals("4.0", String.valueOf(formula.sqrt(16)));
     }
 }
