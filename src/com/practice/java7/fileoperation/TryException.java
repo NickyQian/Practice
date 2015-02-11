@@ -7,12 +7,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import org.junit.Test;
 
 public class TryException {
 	private String inputFilePath = "C:\\Download\\file1.txt";
-	private String outputFilePath = "C:\\Download\\copyOfFie1.txt";
+	private String outputFilePath = "C:\\Download\\copyOfFile1.txt";
 
 	@Test
 	public void testTryException() {
@@ -44,6 +45,27 @@ public class TryException {
 				witer.write("\n");
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testTryCatch() {
+		File inputFile = new File(inputFilePath);
+		File outputFile = new File(outputFilePath);
+		try (BufferedReader read = new BufferedReader(new FileReader(inputFile));
+				BufferedWriter witer = new BufferedWriter(new FileWriter(outputFile));) {
+			String s = null;
+			while ((s = read.readLine()) != null) {
+				System.out.println(s);
+				witer.write(s);
+				witer.write("\n");
+			}
+		} catch (NumberFormatException | IOException e) { // new feature,
+															// combine two
+															// DIFFERENT types
+															// of exception
+															// together.
 			e.printStackTrace();
 		}
 	}
