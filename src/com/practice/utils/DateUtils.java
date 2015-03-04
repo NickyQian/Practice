@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  * This is for JDK 8
  * 
  */
-public class DateUtil {
+public class DateUtils {
 
 	public static final String uuuuMM = "uuuuMM";
 

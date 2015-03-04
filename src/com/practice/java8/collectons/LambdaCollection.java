@@ -90,5 +90,7 @@ public class LambdaCollection {
     public void testReduce() {
         String s = names.stream().reduce("1",(a,b)->a+","+b);
         System.out.println(s);
+        String str = "sdfs Enri";
+        System.out.println( str.substring(0, str.indexOf(" Enri")));
     }
 }
