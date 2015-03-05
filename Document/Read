@@ -9,3 +9,9 @@
 	http://www.blogjava.net/DLevin/archive/2012/05/12/377957.html
 	http://www.blogjava.net/DLevin/archive/2012/05/12/377960.html
 	
+4. how to connect to amazon instance using MobaXterm.
+cd C:
+ssh -i MyAmazonKey.pem ubuntu@10.10.10.10
+
+5. how to set up vpn
+http://www.howtogeek.com/51237/setting-up-a-vpn-pptp-server-on-debian/
