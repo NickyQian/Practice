@@ -1,0 +1,34 @@
+http://blog.csdn.net/catoop/article/details/7537012
+
+加入yum源：
+#rpm -Uvh http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm
+然后yum安装pptpd：
+#yum install  -y pptpd
+
+====无法访问外网
+命令行编辑
+vim /etc/sysctl.conf
+
+将“net.ipv4.ip_forward”改为1
+保存退出，并执行下面的命令来生效它：
+sysctl -p
+
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+  如果你需要这个设置在重启之后依然有效，则需要把这一行内容添加到/etc/rc.local文件中。
+    #vim /etc/rc.local
+
+ 7.把pptpd设置为自动运行：
+    #chkconfig pptpd on
+    最后在EC2的防火墙规则设置中，打开TCP的1723端口即可（这是pptpd的默认连接端口）。大功告成，在Windows中添加一个PPTP类型的VPN玩玩吧，如果连不上的话，可以尝试重启一下。
+    #service pptpd restart
+    
+    
+================
+创建root的密码 sudo passwd root
+
+切换到root身份 su root
+
+vim /etc/ssh/sshd_config
+
+使用root身份编辑亚马逊云主机的ssh登录方式，找到 PasswordAuthentication no，把no改成yes。
