@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -14,6 +16,7 @@ import net.sf.ehcache.config.PersistenceConfiguration;
 import net.sf.ehcache.config.PersistenceConfiguration.Strategy;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class EHCacheBasic {
@@ -24,6 +27,8 @@ public class EHCacheBasic {
 
 		try (InputStream fis = new FileInputStream(new File("src/config/ehcache.xml").getAbsolutePath());) {
 			CacheManager manager = CacheManager.newInstance(fis);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		CacheManager cacheManager = CacheManager.create();
@@ -50,6 +55,9 @@ public class EHCacheBasic {
 		cacheWithDefaultConfig.put(element);
 		// This updates the entry for "key1"
 		cacheWithDefaultConfig.put(new Element("key1", "value2"));
+		Element e = cacheWithDefaultConfig.get("key1");
+		Object value = e.getObjectValue();
+		Assert.assertEquals("value2", value.toString());
 
 		// The following gets the number of elements currently in the cache.
 		Cache cache = cacheManager.getCache("cacheWithDefaultConfig");
@@ -59,5 +67,6 @@ public class EHCacheBasic {
 		long elementsInMemory = cache.getMemoryStoreSize();
 		// The following gets the number of elements currently in the DiskStore.
 		long elementsInDisk = cache.getDiskStoreSize();
+
 	}
 }
