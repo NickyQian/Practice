@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -22,6 +20,7 @@ import org.junit.Test;
 public class EHCacheBasic {
 	// •Design Pattern Nick
 	// •Inside the EHCache Nick
+	@SuppressWarnings("unused")
 	@Test
 	public void testEHCache() throws FileNotFoundException, IOException {
 
