@@ -32,9 +32,10 @@ public class MenuItem extends MenuComponent {
     public boolean isVegetarian() {
         return vegetarian;
     }
-    
+
     /**
-     * 打印此菜单项内容
+     * 打印此菜单项内容 
+     * 子节点
      */
     public void print() {
         System.out.print("  "+ getName());

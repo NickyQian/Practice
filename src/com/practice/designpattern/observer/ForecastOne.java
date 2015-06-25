@@ -11,7 +11,7 @@ public class ForecastOne implements Observer, Display {
     
     @Override
     public void update(Long temperature, Long humidity, String weather) {
-        // updtae!
+        // update!
         this.temperature = temperature;
         display();
     }

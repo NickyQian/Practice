@@ -6,7 +6,7 @@ public class GumballMachineTestDrive {
         
         machine.insertQuarter();
         machine.turnCrank();
-        
+
         machine.insertQuarter();
         machine.ejectQuarter();
     }

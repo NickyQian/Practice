@@ -5,7 +5,7 @@ package com.practice.designpattern.singleton;
  *
  */
 public class SingletonEarly {
-    private static SingletonEarly singleton;
+    private static SingletonEarly singleton = new SingletonEarly();
     
     private SingletonEarly(){}
     
