@@ -10,8 +10,10 @@ import java.util.stream.IntStream;
 import org.junit.Test;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Joiner.MapJoiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 public class GuavaStringOperationTest {
 	@Test
@@ -24,10 +26,12 @@ public class GuavaStringOperationTest {
 		strList.add(null);
 		String joinResult = Joiner.on(',').skipNulls().join(strList);
 		assertEquals("1,2,3,4", joinResult);
+		String joinResult1 = Joiner.on(";").useForNull("NULL").join(strList);
+		assertEquals("1;2;3;4;NULL", joinResult1);
 	}
 
 	@Test
-	public void testSpliter() {
+	public synchronized void testSpliter() {
 
 		List<String> expectedList = Lists.newArrayList("1", "2", "3", "4", "5");
 		String str = "1;;2;3;4;5;";
@@ -60,5 +64,15 @@ public class GuavaStringOperationTest {
 			System.out.print(entry.getValue());
 			System.out.println(";");
 		});
+	}
+	
+	@Test
+	public void testMapJoiner() {
+		Map<String, String> map = Maps.newLinkedHashMap();
+		map.put("key1", "value1");
+		map.put("key2", "value2");
+		map.put("key3", "value3");
+		MapJoiner mapJoiner = Joiner.on(",").withKeyValueSeparator("=");
+		assertEquals("key1=value1,key2=value2,key3=value3",mapJoiner.join(map));
 	}
 }
