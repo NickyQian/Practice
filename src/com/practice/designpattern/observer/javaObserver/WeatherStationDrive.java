@@ -2,7 +2,7 @@ package com.practice.designpattern.observer.javaObserver;
 
 import org.junit.Test;
 
-public class WeatjerStationDrive {
+public class WeatherStationDrive {
 
 	@Test
 	public void test() {
