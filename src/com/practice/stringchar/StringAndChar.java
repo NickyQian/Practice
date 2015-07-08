@@ -39,4 +39,9 @@ public class StringAndChar {
 		assertEquals(true, strIntern1 == strIntern2);
 		assertEquals(true, testStr1 == strIntern1);
 	}
+	
+	@Test
+	public void testArray() {
+		
+	}
 }
