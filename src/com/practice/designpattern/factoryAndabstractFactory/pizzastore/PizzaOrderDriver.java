@@ -1,4 +1,8 @@
 package com.practice.designpattern.factoryAndabstractFactory.pizzastore;
+
+import java.util.stream.IntStream;
+
+
 /**
  * 工厂方法模式：
  * 定义了一个创建对象的接口，但由子类
@@ -8,7 +12,6 @@ package com.practice.designpattern.factoryAndabstractFactory.pizzastore;
  * 抽象工厂模式：
  * 提供一个接口，用于创建相关或依赖
  * 对象的家庭，而不需要明确指定具体类
- * @author qianlei
  *
  */
 public class PizzaOrderDriver {
@@ -19,11 +22,9 @@ public class PizzaOrderDriver {
     public static void main(String[] args) {
         PizzaStore nyPizzaStore = new NewYorkPizzaStore();
         nyPizzaStore.orderPizzza("cheese");
-        
-        for (int i = 0; i<60;i++) {
-            System.out.print("=");
-        }
-        
+        IntStream.rangeClosed(0, 60).forEach((idx)->{
+        	 System.out.print("=");
+        });
         System.out.println();
         PizzaStore chPizzaStore = new ChicagoPizzaStore();
         chPizzaStore.orderPizzza("veg");
