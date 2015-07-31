@@ -16,9 +16,6 @@ import java.util.stream.IntStream;
  */
 public class PizzaOrderDriver {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         PizzaStore nyPizzaStore = new NewYorkPizzaStore();
         nyPizzaStore.orderPizzza("cheese");
@@ -28,7 +25,8 @@ public class PizzaOrderDriver {
         System.out.println();
         PizzaStore chPizzaStore = new ChicagoPizzaStore();
         chPizzaStore.orderPizzza("veg");
-        
+        chPizzaStore.orderPizzza("cheese");
+
     }
 
 }

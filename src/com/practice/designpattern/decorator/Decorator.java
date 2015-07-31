@@ -6,5 +6,6 @@ package com.practice.designpattern.decorator;
  */
 public abstract class Decorator extends BaseCoffee {
     // 重新实现getDescription
+	@Override
     public abstract String getDescription();
 }

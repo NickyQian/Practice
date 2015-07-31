@@ -58,7 +58,7 @@ public class ConvertTest {
 		String[] array = list.toArray(new String[list.size()]);
 		// convert array to list
 		List<String> list2 = new ArrayList<>(Arrays.asList(array));
-
+		
 		traverse(list, array, list2);
 	}
 
