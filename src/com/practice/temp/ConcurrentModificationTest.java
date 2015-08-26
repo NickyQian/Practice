@@ -1,4 +1,4 @@
-package com.practice.collections;
+package com.practice.temp;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
