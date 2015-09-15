@@ -1,10 +1,7 @@
 package com.practice.ehcache;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -18,17 +15,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class EHCacheBasic {
-	// •Design Pattern Nick
-	// •Inside the EHCache Nick
 	@SuppressWarnings("unused")
 	@Test
 	public void testEHCache() throws FileNotFoundException, IOException {
 
-		try (InputStream fis = new FileInputStream(new File("src/config/ehcache.xml").getAbsolutePath());) {
-			CacheManager manager = CacheManager.newInstance(fis);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try (InputStream fis = new FileInputStream(new File("src/config/ehcache.xml").getAbsolutePath());) {
+//			CacheManager manager = CacheManager.newInstance(fis);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		CacheManager cacheManager = CacheManager.create();
 		String[] cacheNames = cacheManager.getCacheNames();
@@ -61,11 +56,14 @@ public class EHCacheBasic {
 		// The following gets the number of elements currently in the cache.
 		Cache cache = cacheManager.getCache("cacheWithDefaultConfig");
 		int cacheSize = cache.getSize();
+		System.out.println(cacheSize);
 		// The following gets the number of elements currently in the
 		// MemoryStore.
 		long elementsInMemory = cache.getMemoryStoreSize();
+		System.out.println(elementsInMemory);
 		// The following gets the number of elements currently in the DiskStore.
 		long elementsInDisk = cache.getDiskStoreSize();
+		System.out.println(elementsInDisk);
 
 	}
 }
