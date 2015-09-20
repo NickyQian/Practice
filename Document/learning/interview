@@ -1,3 +1,7 @@
 1. How spring implements Transational functionality.
 2. Effective tuning for database. How to set up index and how it affects.
 3. Concurrence util in java.
+
+4. cycle ref in Spring bean context.
+5. inner ehcache
+6. 
