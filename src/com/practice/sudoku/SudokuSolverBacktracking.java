@@ -1,15 +1,14 @@
 package com.practice.sudoku;
 
-
 public class SudokuSolverBacktracking implements SudokuSolverStrategy {
 
-	//private PrintStream out = System.out;
+	// private PrintStream out = System.out;
 
 	@Override
 	public boolean solveSudoku(int[][] sudokuArray) {
 		int[] position = new int[2];
 
-		if (!findZeorLocation(sudokuArray, position)) {
+		if (!findZeroLocation(sudokuArray, position)) {
 			return true;
 		}
 		int row = position[0];
@@ -26,7 +25,7 @@ public class SudokuSolverBacktracking implements SudokuSolverStrategy {
 		return false;
 	}
 
-	boolean findZeorLocation(int[][] grid, int[] position) {
+	boolean findZeroLocation(int[][] grid, int[] position) {
 		for (int row = 0; row < 9; row++)
 			for (int col = 0; col < 9; col++)
 				if (grid[row][col] == 0) {
