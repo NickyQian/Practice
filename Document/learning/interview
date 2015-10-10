@@ -5,3 +5,7 @@
 4. cycle ref in Spring bean context.
 5. inner ehcache
 6. 
+
+消息队列，分库分表
+ehcache, Solr, lucene
+Memcached
