@@ -1,0 +1,15 @@
+1. 地图服务：百度地图服务
+2. OAUTH2.0认证：腾讯，微信，微博登录app
+3. 支付服务：支付宝对接，微信对接
+
+4. 物联网协议：MQTT协议（充电桩和平台）
+
+开放API平台：参考ROP框架 https://github.com/itstamen/rop
+
+基础平台框架：Springmvc+spring+mybatis+shiro+redis(其他缓存)
+前端：AceAdmin(bootstrap) + jquery
+数据库：mysql , mongodb
+
+分布式部署：dubbox
+https://github.com/alibaba/dubbo
+https://github.com/dangdangdotcom/dubbox
